@@ -1,5 +1,6 @@
+#[cfg(feature = "fastembed")]
 use langchain_rust::embedding::{Embedder, EmbeddingModel, FastEmbed, InitOptions, TextEmbedding};
-
+#[cfg(feature = "fastembed")]
 #[tokio::main]
 async fn main() {
     //Default
@@ -28,4 +29,8 @@ async fn main() {
         .unwrap();
 
     println!("Len: {:?}", embeddings.len());
+}
+#[cfg(not(feature = "fastembed"))]
+fn main() {
+    println!("enable fastembed feature")
 }

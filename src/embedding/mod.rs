@@ -5,5 +5,7 @@ pub mod ollama;
 pub mod openai;
 pub use error::*;
 
+#[cfg(feature = "fastembed")]
 mod fastembed;
+#[cfg(feature = "fastembed")]
 pub use fastembed::*;
